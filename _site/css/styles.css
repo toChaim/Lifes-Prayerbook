@@ -1,0 +1,42 @@
+*{
+  font-family: "Times New Roman", serif;
+  margin: 5px;
+}
+h1, h2{
+  text-align: center;
+}
+div{
+    border: 3px solid blue;
+}
+
+nav{
+    float: left;
+    width: 20%;
+    border: 3px solid #73AD21;
+}
+bdi{
+  font-size: 100%;
+}
+ol, ul{
+  padding: 5px;
+}
+a:hover{
+  text-decoration: underline;
+  color: green;
+}
+a:visited{
+  color: green;
+}
+.clearfix {
+    overflow: auto;
+}
+#bob{
+  text-align: center;
+}
+.main{
+    margin-left: 21%;
+}
+.footer{
+  text-align: center;
+  font-size: 90%;
+}
