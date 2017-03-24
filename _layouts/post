@@ -1,0 +1,9 @@
+---
+layout: default
+---
+
+<div>{{content}}</div>
+
+<div class="notes">
+  <p>{% if page.author %}Author: {{page.author}}{% endif %}</p>
+</div>
