@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+
+<ul><h1>{{title}}</h1>
+{% for post in site.posts %}
+
+    {% if post.type contains "Declaration" %}
+      <li><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
+    {% endif %}
+
+  {% endfor %}
+</ul>
