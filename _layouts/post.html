@@ -5,5 +5,7 @@ layout: default
 <div>{{content}}</div>
 
 <div class="notes">
-  <p>{% if page.author %}Author: {{page.author}}{% endif %}</p>
+  {% if page.author %}<p>Author: {{page.author}}</p>{% endif %}
+  {% if page.source %}<p>Sources: {{page.source}}</p>{% endif %}
+  {% if page.note %}<p>Notes: {{page.note}}</p>{% endif %}
 </div>
