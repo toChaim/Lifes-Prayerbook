@@ -1,0 +1,37 @@
+---
+layout: default
+
+---
+
+{% capture posts %}
+  {% for post in site.posts %}
+    |{{ post.section }}#{{ post.subSection }}#{{ post.title }}#{{ post.url }}
+  {% endfor %}
+{% endcapture %}
+
+{% assign sortedposts = posts | split: '|' | sort %}
+{% assign varSec = "" %}
+{% assign varSubSec = "" %}
+
+<ol><h1>{{title}}</h1>
+{% for post in sortedposts %}
+    {% assign postitems = post | split: '#' %}
+    {% if postitems[3] != null %}
+
+      {% if postitems[0] != varSec %}
+        {% assign varSec = postitems[0] %}
+        </ol>
+        <ol><h1>{{postitems[0]}}</h1>
+      {% endif %}
+
+      {% if postitems[1] != varSubSec %}
+        {% assign varSubSec = postitems[1] %}
+        </ul>
+        <ul><h2>{{postitems[1]}}</h2>
+      {% endif %}
+
+      <li><a href="{{ postitems[3] }}">{{ postitems[2] }}:{{ postitems[0] }}: {{ postitems[1] }}</a></li>
+    {% endif %}
+    
+{% endfor %}
+</ol>
