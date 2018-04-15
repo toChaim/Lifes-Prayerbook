@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+
+<ul><h1>{{title}}</h1>
+{% capture posts %}
+  {% for post in site.posts %}
+    |{{ post.title }}#{{ post.url }#{{ post.date }}}
+  {% endfor %}
+{% endcapture %}
+
+{% assign sortedposts = posts | split: '|' | sort %}
+{% for post in sortedposts %}
+    {% assign postitems = post | split: '#' %}
+    {% if postitems[1] != null %}
+      <li><a href="{{site.baseurl}}{{ postitems[1] }}">{{ postitems[2] }} {{ postitems[0] }}</a></li>
+    {% endif %}
+{% endfor %}
+</ul>
