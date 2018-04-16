@@ -16,8 +16,8 @@ layout: default
 {% for post in sortedposts %}
     {% assign postitems = post | split: '#' %}
 
-    {% if postitems[0] != varSec %}
-      {% assign varSec = postitems[0] %}
+    {% if postitems[0] != varDate %}
+      {% assign varDate = postitems[0] %}
     </ul>
       <ul><h1>{{ postitems[0] | date_to_long_string }}</h1>
     {% endif %}
