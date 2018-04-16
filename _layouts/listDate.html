@@ -14,7 +14,7 @@ layout: default
 {% for post in sortedposts %}
     {% assign postitems = post | split: '#' %}
     {% if postitems[1] != null %}
-      <li><a href="{{site.baseurl}}{{ postitems[1] }}">{{ postitems[2] }} {{ postitems[0] }}</a></li>
+      <li><a href="{{site.baseurl}}{{ postitems[2] }}">{{ postitems[0] }} {{ postitems[1] }}</a></li>
     {% endif %}
 {% endfor %}
 </ul>
