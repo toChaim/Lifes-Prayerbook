@@ -11,10 +11,19 @@ layout: default
 {% endcapture %}
 
 {% assign sortedposts = posts | split: '|' | sort | reverse %}
+{% assign varDate = "" %}
+
 {% for post in sortedposts %}
     {% assign postitems = post | split: '#' %}
+
+    {% if postitems[0] != varSec %}
+      {% assign varSec = postitems[0] %}
+    </ul>
+      <ul><h1>{{ postitems[0] | date_to_long_string }}</h1>
+    {% endif %}
+
     {% if postitems[1] != null %}
-      <li><a href="{{site.baseurl}}{{ postitems[2] }}">{{ postitems[0] | date_to_long_string }} {{ postitems[1] }}</a></li>
+      <li><a href="{{site.baseurl}}{{ postitems[2] }}">{{ postitems[1] }}</a></li>
     {% endif %}
 {% endfor %}
 </ul>
