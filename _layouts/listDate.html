@@ -19,7 +19,7 @@ layout: default
     {% if postitems[0] != varDate %}
       {% assign varDate = postitems[0] %}
     </ul>
-      <ul><h1>{{ postitems[0] | date_to_long_string }}</h1>
+      <ul><h1>New Date {{ postitems[0] | date_to_long_string }}</h1>
     {% endif %}
 
     {% if postitems[1] != null %}
