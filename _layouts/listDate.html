@@ -11,6 +11,6 @@ layout: default
       {% assign varDate = item.date %}
       </ul><ul><h1>{{ item.date | date_to_long_string }}</h1>
     {% endif %}
-    <li>{{ item.title }}</li>
+    <li><a href="{{site.baseurl}}{{ item.url }}">{{ item.title }}</a></li>
   {% endfor %}
 </ul>
