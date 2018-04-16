@@ -10,7 +10,7 @@ layout: default
   {% endfor %}
 {% endcapture %}
 
-{% assign sortedposts = posts | split: '|' | sort %}
+{% assign sortedposts = posts | split: '|' | sort | reverse %}
 {% for post in sortedposts %}
     {% assign postitems = post | split: '#' %}
     {% if postitems[1] != null %}
