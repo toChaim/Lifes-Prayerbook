@@ -30,7 +30,7 @@ layout: default
         <ul><h2>{{postitems[1]}}</h2>
       {% endif %}
 
-      <li><a href="{{site.baseurl}}{{ postitems[3] }}">{{ postitems[2] }}</a></li>
+      <li><a href="{{site.baseurl}}{{ postitems[3] | strip }}">{{ postitems[2] }}</a></li>
     {% endif %}
 
 {% endfor %}
