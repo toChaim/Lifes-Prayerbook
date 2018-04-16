@@ -18,9 +18,9 @@ layout: default
 
     {% if postitems[0] != varDate %}
       {% assign varDate = postitems[0] %}
-      {% if varDate != "" %}
+      {% if varDate != "\n\n" %}
         </ul>
-          <ul><h1>{{ postitems[0] | date_to_long_string }}</h1>
+          <ul><h1>{{ postitems[0] }}</h1>
       {% endif %}
     {% endif %}
 
