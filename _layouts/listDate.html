@@ -19,6 +19,9 @@ layout: default
     {% if postitems[0] != varDate %}
       {% assign varDate = postitems[0] %}
       {% if varDate != "\n\n" %}
+        <h1>found string for if</h1>
+      {% endif %}
+      {% if varDate != "\n\n" %}
         </ul>
           <ul><h1>{{ postitems[0] }}</h1>
       {% endif %}
