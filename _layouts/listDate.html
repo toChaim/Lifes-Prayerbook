@@ -2,33 +2,15 @@
 layout: default
 ---
 
+<ul>
+  {% assign sorted = site.posts | sort: 'date' | reverse %}
+  {% assign varDate = "" %}
 
-<ul><h1>{{title}}</h1>
-{% capture posts %}
-  {% for post in site.posts %}
-    | {{ post.date }}#{{ post.title }}#{{ post.url }}
+  {% for item in sorted %}
+    {% if varDate != item.date %}
+      {% assign varDate = item.date %}
+      </ul><ul><h1>{{ item.date | date_to_long_string }}</h1>
+    {% endif %}
+    <li>{{ item.title }}</li>
   {% endfor %}
-{% endcapture %}
-
-{% assign sortedposts = posts | split: '|' | sort | reverse %}
-{% assign varDate = "" %}
-
-{% for post in sortedposts %}
-    {% assign postitems = post | split: '#' %}
-
-    {% if postitems[0] != varDate %}
-      {% assign varDate = postitems[0] %}
-      {% if varDate == "\n\n" %}
-        <h1>found string for if</h1>
-      {% endif %}
-      {% if varDate != "\n\n" %}
-        </ul>
-          <ul><h1>{{ postitems[0] }}</h1>
-      {% endif %}
-    {% endif %}
-
-    {% if postitems[1] != null %}
-      <li><a href="{{site.baseurl}}{{ postitems[2] }}">{{ postitems[1] }}</a></li>
-    {% endif %}
-{% endfor %}
 </ul>
