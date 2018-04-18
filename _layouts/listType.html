@@ -3,28 +3,16 @@ layout: default
 
 ---
 
-{% capture posts %}
-  {% for post in site.posts %}
-    |{{ post.type }}#{{ post.title }}#{{ post.url }}
-  {% endfor %}
-{% endcapture %}
-
-{% assign sortedposts = posts | split: '|' | sort %}
-{% assign varType = "" %}
+{% assign types = "Adoration, Confession and atonement, Petition, Intercession, Declaration, Thanksgiving, Refinement, Question" | split: ", " %}
 
 <ol><h1>{{title}}</h1>
-{% for post in sortedposts %}
-    {% assign postitems = post | split: '#' %}
-    {% if postitems[0] != null %}
+{% for type in types %}
+  {% assign posts = site.posts | where_exp:"item", "item.type contains type" | sort: 'title' %}
 
-      {% if postitems[0] != varType %}
-        {% assign varType = postitems[0] %}
-        </ol>
-        <ol><h1>{{postitems[0]}}</h1>
-      {% endif %}
-
-      <li><a href="{{site.baseurl}}{{ postitems[2] | strip }}">{{ postitems[1] }}</a></li>
-    {% endif %}
-
+  <ul><h1>{{ type }}</h1>
+  {% for post in posts %}
+    <li><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+  </ul>
 {% endfor %}
 </ol>
