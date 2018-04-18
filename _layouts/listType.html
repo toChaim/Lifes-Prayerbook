@@ -1,0 +1,18 @@
+---
+layout: default
+
+---
+
+{% assign types = "Adoration, Confession and atonement, Petition, Intercession, Declaration, Thanksgiving, Refinement, Question" | split: ", " %}
+
+<ol><h1>{{title}}</h1>
+{% for type in types %}
+  {% assign posts = site.posts | where_exp:"item", "item.type contains type" | sort: 'title' %}
+
+  <ul><h1>{{ type }}</h1>
+  {% for post in posts %}
+    <li><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+  </ul>
+{% endfor %}
+</ol>
